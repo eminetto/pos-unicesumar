@@ -29,7 +29,7 @@ $app->get('/cerveja/{id}', function ($id) use ($cervejas, $app) {
     }
     
     $key = array_search($id, $cervejas['marcas']);
-    if (!$key) {
+    if ($key === false) {
         return new Response('Não encontrado', 404);
     }
     return new Response($cervejas['marcas'][$key], 200);
