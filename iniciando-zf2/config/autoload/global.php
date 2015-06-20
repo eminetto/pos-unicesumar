@@ -15,6 +15,11 @@ return array(
     	),
 	),
     'cache' => array(
-        'adapter' => 'memory'
+        'adapter' => 'filesystem',
+        'options' => [
+            'ttl' => 3600,
+            'namespace' => 'cache',
+            'cache_dir' => './data/cache'
+        ]
     ),
 );
