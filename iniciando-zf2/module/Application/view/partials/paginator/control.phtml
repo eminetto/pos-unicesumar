@@ -1,0 +1,58 @@
+<?php if ($this->pageCount > 1): ?>
+<div class="navigation clearfix">
+<?php if($this->current != 1): ?>
+	<a href="<?= $this->url(null, array('page' => 1), true) ?>">
+		&laquo;
+	</a>
+<?php else: ?>
+	<a href="<?= $this->url(null, array('page' => 1), true) ?>" class="disabled">
+		&laquo;
+	</a>
+<?php endif;?>
+
+<!-- Previous page link -->
+<?php if (isset($this->previous)): ?>
+	<a href="<?= $this->url(null, array('page' => $this->previous), true) ?>">
+		&lt;
+	</a>
+<?php else: ?>
+	<a href="#" class="disabled">&lt;</a>
+<?php endif; ?>
+
+<!-- Numbered page links -->
+<?php foreach ($this->pagesInRange as $page): ?>
+	<?php if ($page != $this->current): ?>
+		<a href="<?= $this->url(null, array('page' => $page), true) ?>" class="btn">
+			<?php echo $page; ?>
+		</a>
+	<?php else: ?>
+		<a href="#" class="btn disabled"><?php echo $page; ?></a>
+	<?php endif; ?>
+<?php endforeach; ?>
+<!-- Next page link -->
+
+<?php if (isset($this->next)): ?>
+	<a href="<?= $this->url(null, array('page' => $this->next), true) ?>">
+		&gt;
+	</a>
+<?php else: ?>
+	<a href="#" class="disabled">&gt;</a>
+<?php endif; ?>
+
+<?php if($this->current != $this->pageCount): ?>
+	<a href="<?= $this->url(null, array('page' => $this->pageCount), true) ?>">
+		&raquo;
+	</a>
+<?php else: ?>
+	<a href="<?= $this->url(null, array('page' => 1), true) ?>" class="disabled">
+		&raquo;
+	</a>
+<?php endif;?>
+
+</ul>
+<span class="info">
+    <?php echo $this->current;?> de 
+    <?php echo $this->pageCount;?>
+</span>
+</div>
+<?php endif; ?>
