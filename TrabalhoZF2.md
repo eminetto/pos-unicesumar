@@ -5,4 +5,4 @@
 - Tradução nas telas
 - Cache opcional
 
-eminetto@coderockr.com
+Enviar para: eminetto@coderockr.com até 27/06/2015
