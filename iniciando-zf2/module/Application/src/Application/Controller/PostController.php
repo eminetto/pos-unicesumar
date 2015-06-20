@@ -61,10 +61,9 @@ class PostController extends AbstractActionController
     {
         $translator = $this->getServiceLocator()->get('translator');
         $cache = $this->getServiceLocator()->get('Cache');
-        $translator->setCache($cache);
+        // $translator->setCache($cache);
 
         \Zend\Validator\AbstractValidator::setDefaultTranslator($translator);
-
         $form = new PostForm();
         $tableGateway = $this->getTableGateway();
         $request = $this->getRequest();
