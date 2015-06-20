@@ -84,6 +84,21 @@ return array(
                 $postTableGateway = new Application\Model\PostTableGateway($tableGateway);
                 return $postTableGateway;
             },
+            'Cache' => function($sm) {
+                $config = $sm->get('Config');
+                $cache = \Zend\Cache\StorageFactory::factory(
+                    array(
+                        'adapter' => $config['cache']['adapter'],
+                        'plugins' => array(
+                            'exception_handler' => array('throw_exceptions' => false),
+                            'Serializer'
+                        ),
+                        'options' => $config['cache']['options']
+                    )
+                );
+
+                return $cache;
+            }            
         ),
     ),
     'translator' => array(

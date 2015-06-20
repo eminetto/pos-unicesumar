@@ -22,12 +22,12 @@
             <td><?php echo $this->escapeHtml($post->description);?></td>
             <td class="center">
             <?php 
-            // echo $this->dateFormat(
-            //     \DateTime::createFromFormat('Y-m-d H:i:s', $post->post_date),
-            //     \IntlDateFormatter::SHORT,  
-            //     \IntlDateFormatter::SHORT, 
-            //     'pt_BR'
-            // );
+            echo $this->dateFormat(
+                \DateTime::createFromFormat('Y-m-d H:i:s', $post->post_date),
+                \IntlDateFormatter::SHORT,  
+                \IntlDateFormatter::SHORT, 
+                'pt_BR'
+            );
             ?>
             </td>
             <td class="center">
@@ -52,3 +52,5 @@ echo $this->paginationControl(
     'partials/paginator/control.phtml'
 ); 
 ?>
+
+<?php echo $this->partial('partials/powered.phtml');?>

@@ -42,6 +42,10 @@ class PostController extends AbstractActionController
         $paginatorAdapter = new PaginatorDbSelectAdapter($select, $sql);
         $paginator = new Paginator($paginatorAdapter);
         $paginator->setCurrentPageNumber($this->params()->fromRoute('page'));
+        $paginator->setItemCountPerPage($this->params()->fromRoute('itens',50));
+        
+        $cache = $this->getServiceLocator()->get('Cache');
+        $paginator->setCache($cache);
 
         return new ViewModel(array(
             'posts' => $paginator
